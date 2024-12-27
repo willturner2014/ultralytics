@@ -1,0 +1,9 @@
+path: E:\\Data\\Research\\Rip\\rip-my\\Yolo_Rip\\images\\
+train: train
+val: val
+test: test
+
+nc: 1 
+
+names: 
+  0: with_rips 

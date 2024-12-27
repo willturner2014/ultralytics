@@ -178,12 +178,19 @@ class DetectionValidator(BaseValidator):
 
     def get_stats(self):
         """Returns metrics statistics and results dictionary."""
+        # gaoxu
+        # try:
+        #     stats = {k: torch.cat(v, 0).cpu().numpy() for k, v in self.stats.items()}  # to numpy # gaoxu
+        
         stats = {k: torch.cat(v, 0).cpu().numpy() for k, v in self.stats.items()}  # to numpy
         self.nt_per_class = np.bincount(stats["target_cls"].astype(int), minlength=self.nc)
         self.nt_per_image = np.bincount(stats["target_img"].astype(int), minlength=self.nc)
         stats.pop("target_img", None)
         if len(stats) and stats["tp"].any():
             self.metrics.process(**stats)
+        # gaoxu      
+        # except Exception as e:
+        #     print(e)
         return self.metrics.results_dict
 
     def print_results(self):

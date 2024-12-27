@@ -1,0 +1,9 @@
+path: E:\\Data\\Research\\Rip\\DetectionLabelme\\rips_rs_det\\images\\
+train: train
+val: val
+test: test
+
+nc: 1 
+
+names: 
+  0: with_rips
